@@ -1,0 +1,21 @@
+# Local Terraform directories and files
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars       # contains secrets like passwords
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# IDE/editor files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+.idea/
+.vscode/
+.DS_Store
