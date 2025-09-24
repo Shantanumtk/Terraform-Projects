@@ -65,6 +65,9 @@ terraform destroy -auto-approve
 
 This project includes a helper script `terraform_manage.sh` to simplify applying and destroying infrastructure.
 
+## Screenshot of the Project
+<img width="1694" height="921" alt="Lab-3-Terraform-RDS-S3-Bucket" src="https://github.com/user-attachments/assets/d732e809-e175-41f0-914d-3f67f2e1fdf9" />
+
 ### Usage
 
 ```bash
