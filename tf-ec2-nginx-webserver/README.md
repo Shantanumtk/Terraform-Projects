@@ -65,6 +65,9 @@ terraform destroy -auto-approve
 
 This project includes a helper script `terraform_manage.sh` to simplify applying and destroying infrastructure.
 
+#Screenshot of Project
+<img width="1694" height="921" alt="Lab-3-Terraform-EC2-Nginx-WebServer" src="https://github.com/user-attachments/assets/a68180bb-b0f2-4638-9716-37bdab9c686e" />
+
 ### Usage
 
 ```bash
