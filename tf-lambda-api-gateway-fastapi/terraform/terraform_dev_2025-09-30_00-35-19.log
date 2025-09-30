@@ -1,0 +1,212 @@
+2025-09-30_00:35:19 🚧 Starting Terraform automation...
+2025-09-30_00:35:20 🌍 Using workspace: dev
+2025-09-30_00:35:20 📦 Using Lambda ZIP: /Users/shantanu/Terraform-Projects/Terraform-Projects/tf-lambda-api-gateway-fastapi/function.zip
+2025-09-30_00:35:20 🚀 Initializing Terraform...
+[0m[1mInitializing the backend...[0m
+[0m[1mInitializing provider plugins...[0m
+- Reusing previous version of hashicorp/aws from the dependency lock file
+- Using previously-installed hashicorp/aws v6.14.1
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+2025-09-30_00:35:21 🧹 Formatting Terraform files...
+terraform.tfvars
+variables.tf
+2025-09-30_00:35:21 ✅ Validating Terraform code...
+[32m[1mSuccess![0m The configuration is valid.
+[0m
+2025-09-30_00:35:22 📜 Creating Terraform plan...
+[0m[1mdata.aws_iam_policy_document.lambda_assume: Reading...[0m[0m
+[0m[1mdata.aws_iam_policy_document.lambda_assume: Read complete after 0s [id=2690255455][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [32m+[0m create[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_apigatewayv2_api.http[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_api" "http" {
+      [32m+[0m[0m api_endpoint                 = (known after apply)
+      [32m+[0m[0m api_key_selection_expression = "$request.header.x-api-key"
+      [32m+[0m[0m arn                          = (known after apply)
+      [32m+[0m[0m execution_arn                = (known after apply)
+      [32m+[0m[0m id                           = (known after apply)
+      [32m+[0m[0m ip_address_type              = (known after apply)
+      [32m+[0m[0m name                         = "fastapi-http-http-api"
+      [32m+[0m[0m protocol_type                = "HTTP"
+      [32m+[0m[0m region                       = "us-east-1"
+      [32m+[0m[0m route_selection_expression   = "$request.method $request.path"
+      [32m+[0m[0m tags_all                     = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_integration.lambda[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_integration" "lambda" {
+      [32m+[0m[0m api_id                                    = (known after apply)
+      [32m+[0m[0m connection_type                           = "INTERNET"
+      [32m+[0m[0m id                                        = (known after apply)
+      [32m+[0m[0m integration_method                        = "POST"
+      [32m+[0m[0m integration_response_selection_expression = (known after apply)
+      [32m+[0m[0m integration_type                          = "AWS_PROXY"
+      [32m+[0m[0m integration_uri                           = (known after apply)
+      [32m+[0m[0m payload_format_version                    = "2.0"
+      [32m+[0m[0m region                                    = "us-east-1"
+      [32m+[0m[0m timeout_milliseconds                      = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_route.default[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_route" "default" {
+      [32m+[0m[0m api_id             = (known after apply)
+      [32m+[0m[0m api_key_required   = false
+      [32m+[0m[0m authorization_type = "NONE"
+      [32m+[0m[0m id                 = (known after apply)
+      [32m+[0m[0m region             = "us-east-1"
+      [32m+[0m[0m route_key          = "$default"
+      [32m+[0m[0m target             = (known after apply)
+    }
+
+[1m  # aws_apigatewayv2_stage.stage[0m will be created
+[0m  [32m+[0m[0m resource "aws_apigatewayv2_stage" "stage" {
+      [32m+[0m[0m api_id        = (known after apply)
+      [32m+[0m[0m arn           = (known after apply)
+      [32m+[0m[0m auto_deploy   = true
+      [32m+[0m[0m deployment_id = (known after apply)
+      [32m+[0m[0m execution_arn = (known after apply)
+      [32m+[0m[0m id            = (known after apply)
+      [32m+[0m[0m invoke_url    = (known after apply)
+      [32m+[0m[0m name          = "$default"
+      [32m+[0m[0m region        = "us-east-1"
+      [32m+[0m[0m tags_all      = (known after apply)
+    }
+
+[1m  # aws_iam_role.lambda_role[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role" "lambda_role" {
+      [32m+[0m[0m arn                   = (known after apply)
+      [32m+[0m[0m assume_role_policy    = jsonencode(
+            {
+              [32m+[0m[0m Statement = [
+                  [32m+[0m[0m {
+                      [32m+[0m[0m Action    = "sts:AssumeRole"
+                      [32m+[0m[0m Effect    = "Allow"
+                      [32m+[0m[0m Principal = {
+                          [32m+[0m[0m Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              [32m+[0m[0m Version   = "2012-10-17"
+            }
+        )
+      [32m+[0m[0m create_date           = (known after apply)
+      [32m+[0m[0m force_detach_policies = false
+      [32m+[0m[0m id                    = (known after apply)
+      [32m+[0m[0m managed_policy_arns   = (known after apply)
+      [32m+[0m[0m max_session_duration  = 3600
+      [32m+[0m[0m name                  = "fastapi-http-lambda-role"
+      [32m+[0m[0m name_prefix           = (known after apply)
+      [32m+[0m[0m path                  = "/"
+      [32m+[0m[0m tags_all              = (known after apply)
+      [32m+[0m[0m unique_id             = (known after apply)
+
+      [32m+[0m[0m inline_policy (known after apply)
+    }
+
+[1m  # aws_iam_role_policy_attachment.basic_exec[0m will be created
+[0m  [32m+[0m[0m resource "aws_iam_role_policy_attachment" "basic_exec" {
+      [32m+[0m[0m id         = (known after apply)
+      [32m+[0m[0m policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+      [32m+[0m[0m role       = "fastapi-http-lambda-role"
+    }
+
+[1m  # aws_lambda_function.fn[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_function" "fn" {
+      [32m+[0m[0m architectures                  = [
+          [32m+[0m[0m "x86_64",
+        ]
+      [32m+[0m[0m arn                            = (known after apply)
+      [32m+[0m[0m code_sha256                    = (known after apply)
+      [32m+[0m[0m filename                       = "/Users/shantanu/Terraform-Projects/Terraform-Projects/tf-lambda-api-gateway-fastapi/function.zip"
+      [32m+[0m[0m function_name                  = "fastapi-lambda"
+      [32m+[0m[0m handler                        = "app.main.handler"
+      [32m+[0m[0m id                             = (known after apply)
+      [32m+[0m[0m invoke_arn                     = (known after apply)
+      [32m+[0m[0m last_modified                  = (known after apply)
+      [32m+[0m[0m memory_size                    = 128
+      [32m+[0m[0m package_type                   = "Zip"
+      [32m+[0m[0m publish                        = false
+      [32m+[0m[0m qualified_arn                  = (known after apply)
+      [32m+[0m[0m qualified_invoke_arn           = (known after apply)
+      [32m+[0m[0m region                         = "us-east-1"
+      [32m+[0m[0m reserved_concurrent_executions = -1
+      [32m+[0m[0m role                           = (known after apply)
+      [32m+[0m[0m runtime                        = "python3.12"
+      [32m+[0m[0m signing_job_arn                = (known after apply)
+      [32m+[0m[0m signing_profile_version_arn    = (known after apply)
+      [32m+[0m[0m skip_destroy                   = false
+      [32m+[0m[0m source_code_hash               = "17kMKYCugJIqdFF4Xgz6ftBL5GKuREmGh1xBVjVj6Yc="
+      [32m+[0m[0m source_code_size               = (known after apply)
+      [32m+[0m[0m tags_all                       = (known after apply)
+      [32m+[0m[0m timeout                        = 10
+      [32m+[0m[0m version                        = (known after apply)
+
+      [32m+[0m[0m ephemeral_storage (known after apply)
+
+      [32m+[0m[0m logging_config (known after apply)
+
+      [32m+[0m[0m tracing_config (known after apply)
+    }
+
+[1m  # aws_lambda_permission.apigw_invoke[0m will be created
+[0m  [32m+[0m[0m resource "aws_lambda_permission" "apigw_invoke" {
+      [32m+[0m[0m action              = "lambda:InvokeFunction"
+      [32m+[0m[0m function_name       = "fastapi-lambda"
+      [32m+[0m[0m id                  = (known after apply)
+      [32m+[0m[0m principal           = "apigateway.amazonaws.com"
+      [32m+[0m[0m region              = "us-east-1"
+      [32m+[0m[0m source_arn          = (known after apply)
+      [32m+[0m[0m statement_id        = "AllowInvokeFromHttpApi"
+      [32m+[0m[0m statement_id_prefix = (known after apply)
+    }
+
+[1mPlan:[0m 8 to add, 0 to change, 0 to destroy.
+[0m
+Changes to Outputs:
+  [32m+[0m[0m invoke_url = (known after apply)
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Saved the plan to: tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "tfplan"
+2025-09-30_00:35:24 ⚡ Applying Terraform changes...
+[0m[1maws_iam_role.lambda_role: Creating...[0m[0m
+[0m[1maws_apigatewayv2_api.http: Creating...[0m[0m
+[0m[1maws_apigatewayv2_api.http: Creation complete after 1s [id=gsb2l3aoo3][0m
+[0m[1maws_apigatewayv2_stage.stage: Creating...[0m[0m
+[0m[1maws_iam_role.lambda_role: Creation complete after 1s [id=fastapi-http-lambda-role][0m
+[0m[1maws_iam_role_policy_attachment.basic_exec: Creating...[0m[0m
+[0m[1maws_lambda_function.fn: Creating...[0m[0m
+[0m[1maws_iam_role_policy_attachment.basic_exec: Creation complete after 0s [id=fastapi-http-lambda-role/arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole][0m
+[0m[1maws_apigatewayv2_stage.stage: Creation complete after 0s [id=$default][0m
+[0m[1maws_lambda_function.fn: Still creating... [00m10s elapsed][0m[0m
+[0m[1maws_lambda_function.fn: Creation complete after 16s [id=fastapi-lambda][0m
+[0m[1maws_lambda_permission.apigw_invoke: Creating...[0m[0m
+[0m[1maws_apigatewayv2_integration.lambda: Creating...[0m[0m
+[0m[1maws_lambda_permission.apigw_invoke: Creation complete after 0s [id=AllowInvokeFromHttpApi][0m
+[0m[1maws_apigatewayv2_integration.lambda: Creation complete after 0s [id=dcj5vy2][0m
+[0m[1maws_apigatewayv2_route.default: Creating...[0m[0m
+[0m[1maws_apigatewayv2_route.default: Creation complete after 0s [id=7he78tn][0m
+[0m[1m[32m
+Apply complete! Resources: 8 added, 0 changed, 0 destroyed.
+[0m[0m[1m[32m
+Outputs:
+
+[0minvoke_url = "https://gsb2l3aoo3.execute-api.us-east-1.amazonaws.com/"
+2025-09-30_00:35:44 🎉 Apply completed successfully in dev!

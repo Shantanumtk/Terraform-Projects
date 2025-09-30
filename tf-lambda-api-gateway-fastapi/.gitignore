@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+function.zip
+terraform/.terraform/
+terraform/terraform.tfstate*
+terraform/crash.log
