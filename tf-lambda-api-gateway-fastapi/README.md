@@ -259,6 +259,12 @@ curl -i https://<api-id>.execute-api.<region>.amazonaws.com/api/v1/users
 ```
 
 ---
+## Screenshot of Deployment
+
+<img width="828" height="827" alt="Lab-4-Lambda-API-Gateway" src="https://github.com/user-attachments/assets/fd8816b9-a2d6-4466-bd1d-707c88abf92d" />
+<img width="1608" height="897" alt="Lab-4-Lambda-API-Gateway-Terraform" src="https://github.com/user-attachments/assets/c07da9d4-b76b-4411-a32c-425e7844df24" />
+
+---
 
 ## Troubleshooting
 
